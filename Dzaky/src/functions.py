@@ -28,26 +28,6 @@ def paying_debt(outstanding):
     print("total months=", months)
     return months
 
-
-def count_prime_number(number):
-     """obtained from the Python exercise.
-    This function take prime number into the list
-    with the requested maximum number"""
-        
-    prime_numbers = [] #Create an empty list
-    
-    for num in range(2, number):
-        for i in range(2, num):
-            if (num % i) == 0:
-                break #Skip over the non-prime number
-            else:
-                prime_numbers.append(num) #Add prime number into the list
-    print(prime_numbers)
-    
-    return prime_numbers
-
-
-# +
 import cartopy.crs as ccrs
 import matplotlib.pyplot as plt
 
