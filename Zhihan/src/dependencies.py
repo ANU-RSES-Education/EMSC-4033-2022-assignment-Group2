@@ -11,7 +11,5 @@ import cartopy.io.img_tiles as cimgt
 from IPython.display import display_markdown
 from matplotlib import cm
 
-from cloudstor import cloudstor
+import cloudstor
 
-# from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
-# import matplotlib.ticker as mticker

@@ -1,5 +1,5 @@
-# a random placeholder function to be replaced with
-# actual functional functions :)
+# Functions we would like to test should be consistent with Jiarun/src/my_functions
 
-def foo_function(x):
-    return x**2
+from .dependencies import *
+
+from Jiarun/src/my_functions import *
