@@ -4,6 +4,7 @@ Define test functions for each of my_fucntions
 
 import pytest
 from src.my_functions import *
+from src.dependencies import *
 
 def test_my_documentation(type_my_doc = str): 
     # Test with type
