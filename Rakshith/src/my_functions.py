@@ -30,7 +30,7 @@ Subsequently, coastlines and other water features like lakes, rivers and the oce
 
 ## Earthquake events 
 
-10-year records (2002-2012) of earthquakes that occurred within a specified region are collected and used in the program. The records of earthquake events are fed into the program as point data from **IRIS** (Incorporated Research Institution for Seismology) by caliing the functions from `obspy` package. Each point datum consists of 4 parameters: longitude, latitude, depth of the origin and magnitude of the earthquake.
+1 year records (2011-2012) of earthquakes that occurred within a specified region are collected and used in the program. The records of earthquake events are fed into the program as point data from **IRIS** (Incorporated Research Institution for Seismology) by calling the functions from `obspy` package. Each point datum consists of 4 parameters: longitude, latitude, depth of the origin and magnitude of the earthquake.
 
 ## Seafloor Age
 
@@ -73,13 +73,13 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
                                         edgecolor="green",facecolor="blue")
 
     #the following code is to determine which water features are needed
-    if rivers == True:
+    if rivers_visible == True:
         features.append(rivers_visible)
         
-    if lakes == True:
+    if lakes_visible == True:
         features.append(lakes_visible)
 
-    if ocean == True:
+    if ocean_visible == True:
         features.append(ocean_visible)
     
     return features
@@ -127,7 +127,7 @@ def download_point_data(region):
 
     
 
-    from_time = UTCDateTime("2003-01-01")
+    from_time = UTCDateTime("2011-01-01")
     to_time   = UTCDateTime("2012-01-01")
     
     cat = client.get_events(starttime = from_time, endtime = to_time,
@@ -196,7 +196,7 @@ def download_raster_data():
     
     raster_data[...,0] = arrlons[...] # Longitude
     raster_data[...,1] = arrlats[...] # Latitude
-    raster_data[...,2] = ages[...] # Add age data to the array
+    raster_data[...,2] = Ages[...] # Add age data to the array
 
     return raster_data
 
