@@ -1,8 +1,15 @@
-"""
-Functions we would like to test should be consistent with Jiarun/src/my_functions
-"""
+"""All the functions we need to make a map:
 
-from .dependencies import *
+    - my_documentation()
+    - my_coastlines()
+    - my_water_features()
+    - my_basemaps()
+    - download_point_data()
+    - my_point_data()
+    - download_raster_data()
+    - my_global_raster_data()
+
+"""
 
 def my_documentation():
     '''
@@ -22,11 +29,11 @@ The full list of image tiles and their sources can be found in the source code i
 
 ## Coastlines and water features
 
-Then, coastlines and water features containing lakes, reivers and ocean are added to the basemap. `cartopy.feature.NaturalEarthFeature` provides interfaces to obtain them at a specified resolution, i.e. ‘10m’, ‘50m’, or ‘110m’ corresponding to 1:10,000,000, 1:50,000,000, and 1:110,000,000 respectively. In this case, the coastlines are plotted at the resolution of '10m' and the water features are plotted at the resolution of '50m'.
+Then, coastlines and water features containing lakes, reivers and ocean are added to the basemap. `cartopy.feature.NaturalEarthFeature` provides interfaces to obtain them at a specified resolution, i.e. ‘10m’, ‘50m’, or ‘110m’ corresponding to 1:10,000,000, 1:50,000,000, and 1:110,000,000 respectively. In this program, the coastlines are plotted at the resolution of '10m' and the water features are plotted at the resolution of '50m'.
 
 ## Earthquake events
 
-In this case, 3-year (1977-1979) earthquake events occurred within a specified region are collected. The records of earthquake events are input as point data from **IRIS** (Incorporated Research Institution for Seismology) using the functions from `obspy` package. Each point datum consists of 4 parameters: longitude, latitude and depth of the origin and magnitude of the earthquake.
+In this program, 3-year (1977-1979) earthquake events occurred within a specified region are collected. The records of earthquake events are input as point data from **IRIS** (Incorporated Research Institution for Seismology) using the functions from `obspy` package. Each point datum consists of 4 parameters: longitude, latitude and depth of the origin and magnitude of the earthquake.
 
 
 ## Seafloor age
@@ -39,28 +46,39 @@ Seafloor age data are stored on `Cloudstor`, which provides cloud storage servic
     return markdown_documentation
 
 
-
+# Load coastlines
 def my_coastlines(resolution):
     """ 
-    Returns the cartopy features of coastlines at the requested resolution, for example, .
+    Returns the relevant coastlines at the requested resolution, for example, '50m' or '10m'.
+    
+    Example:
+    >>> from my_functions import my_coastlines
+    >>>
+    >>> coastline = my_coastlines("10m")
     """
 
     import cartopy.feature as cfeature
 
-    return cfeature.NaturalEarthFeature('physical', 'coastline', resolution, # Name = 'coastline'
+    return cfeature.NaturalEarthFeature('physical', 'coastline', resolution,
                                         edgecolor=(0.0,0.0,0.0),# Black edge
                                         facecolor= "none")
 
 
+# Load water features
 def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     """
-    Returns a [list] of cartopy features at the requested resolution, for example, '10m', '50m' or '110m'.
-    The water features that want to be returned can be specified. Ocean features are not returned by default.
+    Returns a [list] of cartopy features at the requested resolution, for example, '50m' or '10m'.
+    The water features returned can be specified.
+    
+    Example:
+    >>> from my_functions import my_water_features
+    >>>
+    >>> water_features = my_water_features("50m", lakes=False, ocean=True)
     """
 
-    features = [] # return a list
-
     import cartopy.feature as cfeature
+    
+    features = [] # return a list
 
     lake_feature = cfeature.NaturalEarthFeature('physical', 'lakes', resolution,
                                         facecolor= "blue")
@@ -68,7 +86,6 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
                                         facecolor= "none")
     ocean_feature = cfeature.NaturalEarthFeature('physical', 'ocean', resolution,
                                         facecolor= "blue")
-
 
     # determine which water features are required
     if rivers == True:
@@ -82,22 +99,31 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
 
     return features
 
+
+## Specify global map types
 def my_basemaps():
     """
     Returns a dictionary of map tile generators that cartopy can use.
-    It contains: "mapbox_outdoors", "open_street_map" now.
+    It contains: "mapbox_outdoors", "open_street_map".
+    
+    Example:
+    >>> from my_functions import my_basemaps
+    >>>
+    >>> map_tiles_dictionary = my_basemaps()
     """
 
-    ## The full list of available interfaces is found in the source code for this one:
-    ## https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.py
+    # The full list of available interfaces is found in the source code for this one:
+    # https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.py
 
+    import cartopy.io.img_tiles as cimgt
+    
     # dictionary of possible basemap tile objects
     mapper = {"open_street_map":0, "mapbox_outdoors":0}
 
-    ## Open Street map
+    # Open Street map
     mapper["open_street_map"] = cimgt.OSM()
     
-    ## Open outdoors map
+    # Open outdoors map
     mapper["mapbox_outdoors"] = cimgt.MapboxTiles(access_token = "pk.eyJ1IjoiamlhcnVuIiwiYSI6ImNsMnBxZmliazAxZ3Ezam5xZGUwMWhobmYifQ.q52OXYQru12b3_2siR1OxQ",
                                                   map_id = "outdoors-v11")
 
@@ -109,22 +135,31 @@ def download_point_data(region):
     """
     Returns a np.array of earthquake features containing the longitude, latitude and depth of origins and earthquake magnitudes.
     The range of the earthquake occurring region should be input as the form of [min_lon, max_lon, min_lat, max_lat].
+    
+    Example:
+    >>> from my_functions import download_point_data
+    >>> 
+    >>> lat0 =  30  ; lat1 = 40
+    >>> lon0 =  -123; lon1 = -113
+    >>> map_extent = [lon0, lon1, lat0, lat1]
+    >>>
+    >>> point_data = download_point_data(map_extent)
     """
 
-    from obspy.core import event
     from obspy.clients.fdsn import Client
     from obspy import UTCDateTime
+    import numpy as np
 
     # Set data source
     client = Client("IRIS")
     
     time_start = UTCDateTime("1977-01-01")
     time_end  = UTCDateTime("1980-01-01")
-
+    
     cat = client.get_events(starttime = time_start, endtime = time_end,
-                           minlatitude = region[2],maxlatitude = region[3],
+                            minlatitude = region[2],maxlatitude = region[3],
                             minlongitude = region[0],maxlongitude = region[1])
-
+        
     print ("Point data: {} events in catalogue".format(cat.count()))
 
     # Unpack the obspy data into a plottable np.array
@@ -144,7 +179,15 @@ def download_point_data(region):
 def my_point_data(region):
     '''
     Download earthquake event data using the defined function: download_point_data().
-    Region should be provided as the form of [min_lon, max_lon, min_lat, max_lat].
+    
+    Example:
+    >>> from my_functions import download_point_data, my_point_data
+    >>> 
+    >>> lat0 =  30  ; lat1 = 40
+    >>> lon0 =  -123; lon1 = -113
+    >>> map_extent = [lon0, lon1, lat0, lat1]
+    >>>
+    >>> point_data = my_point_data(map_extent)
     '''
 
     data = download_point_data(region)
@@ -152,17 +195,22 @@ def my_point_data(region):
     return data
 
 
-## - Some global raster data (lon, lat, data) global plate age, in this example
+## Some global raster data (lon, lat, data) of global plate age in this example
 def download_raster_data():
     '''
     Returns a np.array of seafloor ages with longitude and latitude.
+    
+    Example:
+    >>> from my_functions import download_raster_data
+    >>> 
+    >>> raster = download_raster_data()
     '''
 
     # Seafloor age data and global image - data from Earthbyters
-
     # The data come as ascii lon / lat / age tuples with NaN for no data. 
 
     from cloudstor import cloudstor
+    import numpy as np
     
     # Download data from cloudstor
     teaching_data = cloudstor(url="L93TxcmtLQzcfbk", password='')
@@ -190,6 +238,11 @@ def download_raster_data():
 def my_global_raster_data():
     '''
     Download seafloor age data using the defined function: download_raster_data().
+    
+    Example:
+    >>> from my_functions import download_raster_data, my_global_raster_data
+    >>> 
+    >>> raster = my_global_raster_data()
     '''
 
     raster = download_raster_data()
