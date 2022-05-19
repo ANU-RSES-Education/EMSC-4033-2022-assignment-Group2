@@ -34,6 +34,7 @@ Seafloor age data are stored in Cloudstor. We need to download seafloor ages fro
 """
 " *** error is output is not equal to documentation "
 
+
 def test_my_coastlines(resolution='10m'):
 # test whether the type of output is equal to what we need     
     
@@ -41,8 +42,7 @@ def test_my_coastlines(resolution='10m'):
     
     type_my_coastlines = type(result_my_coastlines)
     
-    assert type_my_coastlines == cartopy.feature.NaturalEarthFeature 
-    " *** error is type of output is not equal to cartopy.feature.NaturalEarthFeature "
+    assert type_my_coastlines == cartopy.feature.NaturalEarthFeature, " *** error is type of output is not equal to cartopy.feature.NaturalEarthFeature "
     
 def test_my_water_features(resolution ='10m'):
  # test whether the type of output is equal to what we need    
@@ -51,8 +51,7 @@ def test_my_water_features(resolution ='10m'):
    
     type_my_water_features = type(result_my_water_features) 
     
-    assert type_my_water_features == list
-    " *** error is type of output is not list "
+    assert type_my_water_features == list, " *** error is type of output is not list "
     
 def test_my_basemaps():
 # test whether the type of output is equal to what we need     
@@ -61,8 +60,7 @@ def test_my_basemaps():
     
     type_my_basemaps = type(result_my_basemaps)
     
-    assert type_my_basemaps == dict
-    " *** error is type of output is not dict "
+    assert type_my_basemaps == dict, " *** error is type of output is not dict "
 
 def test_download_point_data():
 # test whether the shape(content) of output is equal to what we need     
@@ -76,8 +74,7 @@ def test_download_point_data():
     
     shape_download_point_data = result_download_point_data.shape
     
-    assert shape_download_point_data == (1234, 4)
-    " *** error is shape of output is not (1234, 4)"   
+    assert shape_download_point_data == (1234, 4), " *** error is shape of output is not (1234, 4)"   
     
 def test_my_point_data():
  #test whether the output of function is not empty
@@ -91,8 +88,7 @@ def test_my_point_data():
     
     shape_my_point_data = result_my_point_data.shape
    
-    assert shape_my_point_data == (1234, 4)
-    " *** error is shape of output is not (1234, 4)"
+    assert shape_my_point_data == (1234, 4), " *** error is shape of output is not (1234, 4)"
     
     
 def test_download_raster_data():
@@ -102,8 +98,7 @@ def test_download_raster_data():
     
     shape_download_raster_data = result_download_raster_data.shape
     
-    assert shape_download_raster_data == (1801, 3601, 3)
-    " *** error is shape of output is not (1801, 3601, 3)"
+    assert shape_download_raster_data == (1801, 3601, 3), " *** error is shape of output is not (1801, 3601, 3)"
     
 def test_my_global_raster_data():
  #test whether the output of function is not empty
@@ -112,5 +107,4 @@ def test_my_global_raster_data():
     
     shape_my_global_raster_data = result_my_global_raster_data.shape
     
-    assert shape_my_global_raster_data == (1801, 3601, 3)
-    " *** error is shape of output is not (1801, 3601, 3)"
+    assert shape_my_global_raster_data == (1801, 3601, 3), " *** error is shape of output is not (1801, 3601, 3)"
