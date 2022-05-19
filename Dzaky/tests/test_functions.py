@@ -57,3 +57,27 @@ def test_my_basemaps(my_mapper_type = dict):
     mapper_type = type(mapper)
     
     assert mapper_type == my_mapper_type, " *** Unable to return the basemap dictionary "
+
+def test_download_point_data(size_eq = 4):
+    #test the array
+    
+    llat = 30; ulat = 40 #Define lower and upper latitude
+    llon = -123; rlon = 113 #Define left and right longitude
+    
+    map_area = [llon, ulat, llon, rlon]
+    
+    eq_origin = download_point_data(map_area)
+    
+    size_eq_origin = eq_origin.shape[1]
+    
+    assert size_eq_origin == size_eq, "*** Unable to download earthquake events due to different eq size"
+    
+def test_download_raster_data(datashape=(1801, 3601, 3)):
+    
+    raster = download_raster_data()
+    
+    shape_raster = raster.shape
+    
+    assert shape_raster == datashape, "*** Unable to download rastered data because of different shape"
+    
+    

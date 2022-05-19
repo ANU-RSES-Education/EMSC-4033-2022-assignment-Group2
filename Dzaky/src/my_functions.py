@@ -64,7 +64,7 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
         features.append(lake)
 
     if ocean == True:
-        features.append(somethingelse)
+        features.append(ocean)
 
     return features
 
