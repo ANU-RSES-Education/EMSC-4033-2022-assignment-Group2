@@ -1,0 +1,6 @@
+Individual Task – Computational Geophysics
+
+I am going to plot the three-dimensional model of shear-wave velocity in a Jakarta Basin, which will be my research project in the future. After plotting the 3D model, I would like to write the code to create the two-dimensional cross-sections out of the 3D model to be able to display the basin depth as the sharp changes in the velocity profile. In order to do this, the steps that will be performed is:
+
+1.	Plot Vs as a function of coordinates (latitude and longitude) and depth
+2.	Create a function that could create cross-sections from any direction within the map area
