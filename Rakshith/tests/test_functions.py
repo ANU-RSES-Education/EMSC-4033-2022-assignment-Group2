@@ -58,8 +58,8 @@ def test_my_basemaps(type_of_my_mapper = dict, type_of_my_od = cartopy.io.img_ti
 def test_download_point_data(my_eq_type = np.ndarray, my_eq_size = 4):
     # Test with type and test if the array do has correct shape/features
 
-    lat0 =  30  ; lat1 = 50
-    lon0 =  125; lon1 = 150
+    lat0 =  30  ; lat1 = 40
+    lon0 =  125; lon1 = 135
     map_extent = [lon0, lon1, lat0, lat1]
 
     eq = download_point_data(map_extent)

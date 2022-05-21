@@ -11,26 +11,26 @@ from .dependencies import *
 def my_documentation():
 
     markdown_documentation = """ 
-    This function returns a Markdown document explaining information of this program. 
+This markdown function returns a document that explains what the program achieves. 
     
-# Map plotting
+# Plotting the Map
 
-In this notbook, we attempt at plotting a high-resolution map at the region of 30-40°N, 113-123°W. The map is supposed to display a variety of information containing coastlines and water features, locations of past earthquake events within the set time range, seafloor age and topography on the basemap. The following explains more information about how each element of the map is obtained and plotted.
+This notebook is programmed to give us a high-resolution map of the Japanese mainland, containing information about the coastlines, water features, location of earthquake events for the specifoed time range, the sea floor age and finally the topography on the main basemap. Further information about how all of these were achieved is explained below.
     
 ##  Basemap
 
-Firstly, image tiles are required to produce the basemap. `cartopy` implements the functionality to get access to various sources providing map image tiles. 
-[Mapbox](https://docs.mapbox.com/api/maps/styles/) provides a lot of map styles to choose from. In our program, we use **Mapbox outdoors**, which gives out vivid natural features, topopraphy as well as roadways and built fatures. We need to login into mapbox [website](https://docs.mapbox.com/api/maps/styles/) to get the required `access_token`.
+First and foremost, it is a known fact that to produce a basemap, we need image tiles. We manage to do that using the 'cartopy' package, which uses the function to gather access to various sources that would help us in providing these image tiles.
+The [Mapbox](https://docs.mapbox.com/api/maps/styles/) provides us with a lot of map styles to choose from, depending on the purpose of our function. In our program, we make use of the **Mapbox outdoors** style, simply to make our natural features, topopraphy as well as roadways and built features standout vividly. However, we do need to login into the mapbox [website](https://docs.mapbox.com/api/maps/styles/) to get the necessary `access_token`.
 
 The full list of image tiles and their sources can be found in the source code in [Github](https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.py).
 
 ## Coastlines and water features
 
-Subsequently, coastlines and other water features like lakes, rivers and the ocean are added to the basemap. `cartopy.feature.NaturalEarthFeature` provides the necessary interfaces to obtain them at a specified resolution, i.e. ‘10m’, ‘50m’, or ‘110m’ corresponding to a scale of 1:10,000,000, 1:50,000,000, and 1:110,000,000 respectively. In this program, the coastlines are plotted at the resolution of '10m' and the water features are plotted at the resolution of '50m'.
+Adding coastlines and other water features like lakes, rivers and the ocean to the basemap is our next objective. The `cartopy.feature.NaturalEarthFeature` code gives us the necessary interfaces to acquire them at a specified resolution, i.e. ‘10m’, ‘50m’, or ‘110m’, which corresponds to a scale of 1:10,000,000, 1:50,000,000, and 1:110,000,000 respectively. For the purpose of our program, we plot the coastlines at a resolution of '10m' and the water features at a resolution of '50m'.
 
 ## Earthquake events 
 
-1 year records (2011-2012) of earthquakes that occurred within a specified region are collected and used in the program. The records of earthquake events are fed into the program as point data from **IRIS** (Incorporated Research Institution for Seismology) by calling the functions from `obspy` package. Each point datum consists of 4 parameters: longitude, latitude, depth of the origin and magnitude of the earthquake.
+Earthquakes that occurred in the specified region between the time period specified are collected and used in making the map. These records are fed into the program as point data from the **IRIS** (Incorporated Research Institution for Seismology) database, by availing the aid of the functions from the `obspy` package. Each of the point datum consists of 4 parameters: the longitude, the latitude, the depth of the origin and the magnitude of the earthquake.
 
 ## Seafloor Age
 
@@ -43,7 +43,7 @@ Data pertaining to the age of the sea floor are stored on `Cloudstor`, which pro
 
 
 def my_coastlines(resolution):
-    """ This function returns the necessary coastlines at the requested resolution """
+    """ To return the necessary coastlines at the requested resolution """
     import cartopy.feature as cfeature
     coastline = cfeature.NaturalEarthFeature('physical', 'coastline', resolution,
                            edgecolor=(0.0,0.0,0.0),
@@ -56,8 +56,8 @@ def my_coastlines(resolution):
 
 def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     """
-    Returns a [list] of cartopy features at the requested resolution (10m, 50m or 110m)
-    Furthermore, it can also be specified which water features to be returned
+    To return a [list] of cartopy features at the requested resolution (10m, 50m or 110m)
+    and also specify which water features to be returned.
     
     """
     
@@ -65,7 +65,7 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     
     import cartopy.feature as cfeature
     
-    rivers_visible = cfeature.NaturalEarthFeature('physical', 'rivers', resolution,
+    rivers_visible = cfeature.NaturalEarthFeature('physical', 'rivers_lake_centerlines', resolution,
                                         edgecolor='Blue', facecolor="none")
     lakes_visible = cfeature.NaturalEarthFeature('physical', 'lakes', resolution,
                                         edgecolor="blue", facecolor="blue")
@@ -86,8 +86,8 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
 
 def my_basemaps():
     """
-    This function returns a dictionary of map tile generators that cartopy can use.
-    It contains: "mapbox_outdoors", "open_street_map", which are necessary map titles
+    To returns a dictionary of map tile generators that cartopy can use,
+    containing: "mapbox_outdoors" and "open_street_map", which are the necessary map titles
     for our program
     
     """
@@ -112,7 +112,7 @@ def my_basemaps():
 
 def download_point_data(region):
     """
-    This function returns an np.array of earthquake features that consists of the longitude, latitude and depth of origins and earthquake magnitudes.
+    To return an np.array of earthquake features that consists of the longitude, latitude and depth of origins and earthquake magnitudes.
     The range of the earthquake occurring region should be input as the form of [min_lon, max_lon, min_lat, max_lat].
     
     """
@@ -128,7 +128,7 @@ def download_point_data(region):
     
 
     from_time = UTCDateTime("2011-01-01")
-    to_time   = UTCDateTime("2012-01-01")
+    to_time   = UTCDateTime("2011-06-30")
     
     cat = client.get_events(starttime = from_time, endtime = to_time,
                            minlatitude = region[2],maxlatitude = region[3],
@@ -153,7 +153,7 @@ def download_point_data(region):
 
 def my_point_data(region):
     """
-    This is to download the required earthquake event data using the previously defined function: download_point_data().
+    To download the required earthquake event data using the previously defined function: download_point_data().
     
     """
     
@@ -166,7 +166,7 @@ def my_point_data(region):
 
 def download_raster_data():
     """
-    Returns a np.array of seafloor ages with longitude and latitude.
+    To return a np.array of seafloor ages with longitude and latitude.
     
     """
     # Seafloor age data and global image - data from Earthbyters
