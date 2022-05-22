@@ -32,4 +32,4 @@ Generally, we went through several steps to make our work as follows:
 
 ## Map example
 
-!["Can't find the plot"](LA_Basin_Map.png)
+!["Can't find the plot"](Jiarun/LA_Basin_Map.png)
