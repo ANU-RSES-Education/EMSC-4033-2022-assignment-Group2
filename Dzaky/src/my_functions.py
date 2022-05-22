@@ -13,23 +13,24 @@ def my_documentation():
 
     markdown_documentation = """ This function consist of information for each function in my_functions.py, and return the markdown document 
     
-    #Map Making
-    Plot high resolution map of particular region. The map displays various information, from basic geographical features such as coastline and water of bodies, to the past earthquake event locations and seafloor age
+# Map Making
+
+Plot high resolution map of particular region. The map displays various information, from basic geographical features such as coastline and water of bodies, to the past earthquake event locations and seafloor age
     
-    ##Coastline
-    Fundamental geographical feature to plot, to map the global land and ocean
+## Coastline
+Fundamental geographical feature to plot, to map the global land and ocean
     
-    ##Water Bodies
-    Subsequent geographical features including river and lakes
+## Water Bodies
+Subsequent geographical features including river and lakes
     
-    ##Basemap
-    Set up a new Mapbox tiles instance. In this function, we will use Mapbox outdoor which displays natural features.Full list of available interface can be explroed here https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.p
+## Basemap
+Set up a new Mapbox tiles instance. In this function, we will use Mapbox outdoor which displays natural features.Full list of available interface can be explroed here https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.p
     
-    ##Point Data
-    Handle global events of earthquakes in certain periods (in this case 2000 - 2006). First, the earthquake data is obtained from IRIS. And then, specific functions from Obspy are utilized to get event  with requested parameters, such as latitude range, longitude range, and maximum depth, before being plotted.
+## Point Data
+Handle global events of earthquakes in certain periods (in this case 2000 - 2006). First, the earthquake data is obtained from IRIS. And then, specific functions from Obspy are utilized to get event  with requested parameters, such as latitude range, longitude range, and maximum depth, before being plotted.
     
-    ##Raster Data
-    Handle global seafloor age data which is obtained from Cloudstor. 
+## Raster Data
+Handle global seafloor age data which is obtained from Cloudstor. 
     """
     
     return markdown_documentation
@@ -69,7 +70,8 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     return features
 
 def my_basemaps():
-    """Returns a dictionary of map tile generators that cartopy can use"""
+    """Returns a dictionary of map tile generators that Cartopy can use
+    This function stores open street and mapbox outdoor features"""
 
 
     ## The full list of available interfaces is found in the source code for this one:
@@ -81,7 +83,10 @@ def my_basemaps():
 
     ## Open Street map
     mapper["open_street_map"] = cimgt.OSM()
-    mapper["mapbox_outdoors"] = cimgt.MapboxTiles(map_id='mapbox/outdoors-v11',               access_token='pk.eyJ1IjoibG91aXNtb3Jlc2kiLCJhIjoiY2pzeG1mZzFqMG5sZDQ0czF5YzY1NmZ4cSJ9.lpsUzmLasydBlS0IOqe5JA')
+    
+    ##Open Outdoor map
+    mapper["mapbox_outdoors"] = cimgt.MapboxTiles(access_token = "pk.eyJ1IjoiamlhcnVuIiwiYSI6ImNsMnBxZmliazAxZ3Ezam5xZGUwMWhobmYifQ.q52OXYQru12b3_2siR1OxQ",
+                                                  map_id = "outdoors-v11")
 
     return mapper
 
@@ -103,7 +108,10 @@ def download_point_data(area):
     end_time   = UTCDateTime("2006-01-01")
 
     #Obtain events with specified region
-    cat = client.get_events(starttime=start_time, endtime=end_time, minlatitude=area[2], maxlatitude=area[3], minlongitude=area[0], maxlongitude=area[1], maxdepth=300.00)
+    cat = client.get_events(starttime = start_time, endtime = end_time,
+                            minlatitude = area[2],maxlatitude = area[3],
+                            minlongitude = area[0],maxlongitude = area[1], 
+                            minmagnitude=4.0)
 
     print ("Point data: {} events in catalogue".format(cat.count()))
 
@@ -144,25 +152,25 @@ def download_raster_data():
     from cloudstor import cloudstor
     teaching_data = cloudstor(url="L93TxcmtLQzcfbk", password='')
     teaching_data.download_file_if_distinct("global_age_data.3.6.z.npz", "global_age_data.3.6.z.npz")
+    
+    ages = np.load("global_age_data.3.6.z.npz")["ageData"]
 
     datasize = (1801, 3601, 3)
     
     #Create empty array
     raster_data = np.empty(datasize)
-    ages = np.load("global_age_data.3.6.z.npz")["ageData"]
     
     #Fill the empty array
-    lat = np.linspace(-90, 90, datasize[0])
-    lon = np.linspace(-180, 180, datasize[1])
+    lat = np.linspace(90.0, -90.0, datasize[0])
+    lon = np.linspace(-180.0, 180.0, datasize[1])
     
-    lon_array, lat_array = np.meshgrid(lon, lat)
+    lon_array, lat_array = np.meshgrid(lon, lat) #Create coordinate grid from lat and lon
     
-    raster_data[...,0] = lon_array[...]
-    raster_data[...,1] = lat_array[...]
-    raster_data[...,2] = ages[...]
+    raster_data[...,0] = lon_array[...] #Longitude
+    raster_data[...,1] = lat_array[...] #Latitude
+    raster_data[...,2] = ages[...] #Age
 
     return raster_data
-
 
 def my_global_raster_data():
     """call download raster data which have been constructed to download the seafloor data"""
