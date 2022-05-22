@@ -132,7 +132,8 @@ def download_point_data(region):
     
     cat = client.get_events(starttime = from_time, endtime = to_time,
                            minlatitude = region[2],maxlatitude = region[3],
-                            minlongitude = region[0],maxlongitude = region[1])
+                            minlongitude = region[0],maxlongitude = region[1],
+                           minmagnitude = 5.4, maxmagnitude = 9.5)
 
     print ("Point data: {} events in catalogue".format(cat.count()))
     
