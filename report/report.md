@@ -8,15 +8,50 @@ The following content shows how this repository is created:
 
 Record of requests and reviews.
 
+# *Dzaky*
+5/5/2022
+- Rename the individual folder
+- Create first pull request in the group repository
+- Try and learn the test functions in `test_functions.py` and `RunTests.ipynb`
+
+11/5/2022
+- Approve Jiarun's individual part PR
+-
+12/5/2022
+- Initial work on `my_functions.py`: Write and complete the beginning functions (**my_basemap()**, **my_water_features()**, **my_coastlines()**)
+
+16/5/2022
+- Comment in Pull Request: Jiarun's table fix on README.md
+
+17/5/2022
+- Completing the remaining `my_functions.py` functions
+- Write full documentation on **my_documentation()** and docstrings in the later function
+- Add `MapMaker.ipynb` to the github folder
+
+20/5/2022
+- Fix some mistakes and typo thanks to the comment and review from fellow group members
+
+22/5/2022
+- Approve the report template proposed by Jiarun
 
 ## Collaborative editing of documents
 
 Editting history for `report.md` and `README.md`.
 
+# *Dzaky*
+5/5/2022
+- Initialize the group members template for README.md
+
+22/5/2022
+- Writing individual part in `report.md`
 
 ## Creating and resolving issues
 
 Issue records in GitHub.
+
+# *Dzaky*
+19/5/2022
+- Raise issues about writing report
 
 
 ## Adding tests
