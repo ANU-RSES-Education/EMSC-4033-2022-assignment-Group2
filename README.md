@@ -32,4 +32,4 @@ Generally, we went through several steps to make our work as follows:
 
 ## Map example
 
-!["Can't find the plot"](Dzaky/Java_Island_Map.png)
+![](Dzaky/Java_Island_Map.png)
