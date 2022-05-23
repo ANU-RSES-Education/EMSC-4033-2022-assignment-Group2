@@ -9,6 +9,7 @@ The following content shows how this repository is created:
 Record of requests and reviews.
 
 ### Zhihan  
+
 29/4/22
 - Pulled request #2 on my branch to do some tests.
 - Reviewed and approved request #3 pulled by Jiarun.
@@ -26,7 +27,7 @@ Record of requests and reviews.
 13/5/22
 - Pulled request #14 to rename my file.
 - Pulled request #15 to add my file.
-- Pulled request #16 to change Readme.
+- Pulled request #16 to change `README.md`.
 
 16/5/22
 - Reviewed and approved request #17 pulled by Jiarun.
@@ -36,8 +37,8 @@ Record of requests and reviews.
 - Reviewed and approved request #21 pulled by Jiarun.
 
 18/5/22
-- Pulled request #23 to upload my work on individual task of plotting map task.
-- Pulled request #24 to do some modifications on test function.
+- Pulled request #23 to upload my work on individual task of plotting map task including `my_functions.py` and `test_functions.py` .
+- Pulled request #24 to do some modifications on `test_functions.py`.
 
 22/5/22
 - Reviewed request #25 pulled by Jiarun.
@@ -47,7 +48,10 @@ Record of requests and reviews.
 - Reviewed request #30 pulled by Dzaky.
 - Reviewed and approved request #31 pulled by Jiarun.
 - Reviewed request #33 pulled by Jiarun.
+
+23/5/22
 - Pulled request #35 to add my part in `report.md`
+- Pulled request #36 to modify my part in `report.md`
 
 ### Dzaky
 
@@ -214,7 +218,7 @@ Respective tests：
 
 ### *Zhihan*  
 
-[test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/tests/test_functions.py)
+[test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/tests/test_functions.py)  
 [RunTests.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/RunTests.ipynb)
 
 ## Adding documentation/docstrings
