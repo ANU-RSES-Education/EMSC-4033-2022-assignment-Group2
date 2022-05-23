@@ -2,7 +2,7 @@
 
 ## Basic information
 
-This repository builds some functions helpful for ploting a regional **basemap** labelled with **coastlines**, **water features** and **seafloor age** information.
+This repository builds some functions helpful for ploting a regional **basemap** labelled with **coastlines**, **water features**, **Earthquake events** and **seafloor age** information.
 
  - `MapMaker.ipynb` documents details about each element of the plotted map and provides an example showing how to call these functions and plot the map.
 
