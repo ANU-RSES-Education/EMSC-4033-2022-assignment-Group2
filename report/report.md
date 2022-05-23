@@ -8,6 +8,46 @@ The following content shows how this repository is created:
 
 Record of requests and reviews.
 
+### Zhihan  
+29/4/22
+- Pulled request #2 on my branch to do some tests.
+- Reviewed and approved request #3 pulled by Jiarun.
+
+4/5/22
+- Reviewed and approved request #6 pulled by Dzaky.
+
+12/5/22
+- Reviewed and approved request #10 pulled by Jiarun.
+- Reviewed request #12 pulled by Dzaky.
+
+12/5/22
+- Reviewed and approved request #13 pulled by Dzaky.
+
+13/5/22
+- Pulled request #14 to rename my file.
+- Pulled request #15 to add my file.
+- Pulled request #16 to change Readme.
+
+16/5/22
+- Reviewed and approved request #17 pulled by Jiarun.
+- Reviewed request #18 pulled by Jiarun.
+
+18/5/22
+- Reviewed and approved request #21 pulled by Jiarun.
+
+18/5/22
+- Pulled request #23 to upload my work on individual task of plotting map task.
+- Pulled request #24 to do some modifications on test function.
+
+22/5/22
+- Reviewed request #25 pulled by Jiarun.
+- Reviewed request #27 pulled by Dzaky.
+- Reviewed request #28 pulled by Dzaky.
+- Reviewed request #29 pulled by Rakshith.
+- Reviewed request #30 pulled by Dzaky.
+- Reviewed and approved request #31 pulled by Jiarun.
+- Reviewed request #33 pulled by Jiarun.
+- Pulled request #35 to add my part in `report.md`
 
 ### Dzaky
 
@@ -98,6 +138,12 @@ Record of requests and reviews.
 
 Editting history for `report.md` and `README.md`.
 
+### Zhihan  
+13/5/22
+- Add some information of group template for `README.md`
+22/5/22
+- Writing individual part in `report.md`
+
 ### Dzaky
 5/5/2022
 - Initialize the group members template for README.md
@@ -120,6 +166,11 @@ Editting history for `report.md` and `README.md`.
 ## Creating and resolving issues
 
 Issue records in GitHub.
+
+### Zhihan  
+
+22/5/22
+- Reviewed issue # 22 raised from Dzaky.
 
 ### Dzaky  
 
@@ -155,7 +206,10 @@ Respective tests：
 [test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/5631329b203db8be90cdf5ede99960a37ba87507/Dzaky/tests/test_functions.py)
 [RunTests.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/5631329b203db8be90cdf5ede99960a37ba87507/Dzaky/RunTests.ipynb)
 
+### *Zhihan*  
 
+[test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/tests/test_functions.py)
+[RunTests.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/RunTests.ipynb)
 
 ## Adding documentation/docstrings
 
@@ -169,3 +223,8 @@ Docstrings written for each function in `my_functions.py` can be shown by callin
 Similar with the documentation from the other group members, I wrote the main documentation for a single file under **my_documentation()**. This function is exclusively made to wrote the description of subsequent functions which were prepared to execute and run `MapMaker.ipynb`. The subsequent functions in `my_functions.py` explain the fundamental informations for map, including basemap, coastlines, and water features, as well as additional data in geophysics such as earthquake events and seafloor age. 
 
 Aside from **my_documentation()**, each function has docstrings written in the beginning of function. These docstrings give short information of function purpose and return, to guide the reader in identifying different functions. 
+
+### *Zhihan*  
+I wrote what we need to do in group assessment and detailed descriptions of each function we need to complete about their effect and origin in **my_documentation()**, especially in the packages we would use. They are about Basemap, Coastlines and water features, Earthquake point events and Seafloor age. It appears when I run corresponding code in `MapMaker.ipynb`.
+
+Docstrings I written below each function in `my_functions.py` are descriptions of my ideas on how to complete the functions, including the packages I used and arguments, return and meanings of these packages. We could read these codes readily with these docstrings.
