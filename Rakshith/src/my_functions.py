@@ -30,7 +30,7 @@ Adding coastlines and other water features like lakes, rivers and the ocean to t
 
 ## Earthquake events 
 
-Earthquakes that occurred in the specified region between the time period specified are collected and used in making the map. These records are fed into the program as point data from the **IRIS** (Incorporated Research Institution for Seismology) database, by availing the aid of the functions from the `obspy` package. Each of the point datum consists of 4 parameters: the longitude, the latitude, the depth of the origin and the magnitude of the earthquake.
+Earthquakes that occurred in the specified region between the time period specified are collected and used in making the map. In this notebook, the specified region is of Japan, and the specified time is 6 months, between 01/01/2011 to 30/06/2011. These records are fed into the program as point data from the **IRIS** (Incorporated Research Institution for Seismology) database, by availing the aid of the functions from the `obspy` package. Each of the point datum consists of 4 parameters: the longitude, the latitude, the depth of the origin and the magnitude of the earthquake.
 
 ## Seafloor Age
 
