@@ -35,6 +35,8 @@ Record of requests and reviews.
 
 22/5/2022
 - Approve the report template proposed by Jiarun
+- Approve the indidivual task PR from Rakshith
+- Add parameters for **get_events()** in `my_functions.py` and change the map area to Java Island in `MapMaker.ipynb` before create PR
 
 ### Jiarun
 
@@ -104,6 +106,10 @@ Editting history for `report.md` and `README.md`.
 
 22/5/2022
 - Writing individual part in `report.md`
+- Initialize general description and link to individual work in `README.md`
+- Add contribution report in `report.md`
+
+23/5/2022
 
 ### Jiarun
 
