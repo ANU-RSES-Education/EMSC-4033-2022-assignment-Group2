@@ -19,23 +19,23 @@ Record of requests and reviews.
 - Requested a pull, #9, to change the name of my assigned folder
 
 16/05/2022
-- commented on Jiarun's request #11, and suggested a change that needed to be done
-- suggested changes to to Dzaky's request #13
-- commented on Jiarun's request #17 that made changes to the README file
+- Commented on Jiarun's request #11, and suggested a change that needed to be done
+- Suggested changes to to Dzaky's request #13
+- Commented on Jiarun's request #17 that made changes to the README file
 
 17/05/2022
-- opened a pull request #19, to commit initial changes made to 'my_functions.py' and 'test_functions.py'
-- made changes to 'my_functions.py', as suggested by Jiarun #19
-- commented and approved request #21 by Jiarun
+- Opened a pull request #19, to commit initial changes made to 'my_functions.py' and 'test_functions.py'
+- Made changes to 'my_functions.py', as suggested by Jiarun #19
+- Commented and approved request #21 by Jiarun
 
 20/05/2022
-- pulled a request, #26, to commit the additional changes made to 'my_functions.py'
+- Pulled a request, #26, to commit the additional changes made to 'my_functions.py'
 
 22/05/2022
-- pulled a request, #29, to commit the final changes made to 'my_functions.py'
+- Pulled a request, #29, to commit the final changes made to 'my_functions.py'
 
 23/05/2022
-- pulled a request, #37, that updated 'test_functions.py' and completed my individual task
+- Pulled a request, #37, that updated 'test_functions.py' and completed my individual task
 - Approved and merged request #38 by Jiarun that made changes to 'README.md'
 
 
@@ -93,7 +93,7 @@ Record of requests and reviews.
 
 11/5/2022
 - Approve Jiarun's individual part PR
--
+
 12/5/2022
 - Initial work on `my_functions.py`: Write and complete the beginning functions (**my_basemap()**, **my_water_features()**, **my_coastlines()**)
 
@@ -169,7 +169,15 @@ Record of requests and reviews.
  - Merged request#29 pulled by Rakshith.
  - Pulled request#31 to add my group work records into report.md.
  - Reviewed and approved request#31 pulled by Dzaky.
+ - Reviewed and approved request#32 pulled by Dzaky.
+ - Pulled request#33 to add a map example plot to README.md
 
+23/05  
+ - Reviewed and approved request#36 pulled by Zhihan.
+ - Reviewed and approved request#37 pulled by Rakshith.
+ - Pulled request#38 to correct some spelling errors in README.md.
+ - Reviewed and approved request#39 pulled by Rakshith.
+ - Pulled request#40 to correct some errors in README.md and supplement report.md.
 
 ## Collaborative editing of documents
 
@@ -196,8 +204,6 @@ Editting history for `report.md` and `README.md`.
 - Initialize general description and link to individual work in `README.md`
 - Add contribution report in `report.md`
 
-23/5/2022
-
 ### Jiarun
 
 16/05  
@@ -207,8 +213,13 @@ Editting history for `report.md` and `README.md`.
  - Proposed the structure for the group report.
  
 22/05 
- - Added his request and issue records to `report.md`.
- - Put his work into `README.md`.
+ - Added request and issue records to `report.md`.
+ - Put my work into `README.md`.
+ - Add a map example plot to README.md
+
+23/05
+- Correct some spelling errors in README.md.
+- Do a final check and supplement for README.md and report.md.
 
 ## Creating and resolving issues
 
@@ -247,11 +258,13 @@ Issue records in GitHub.
 19/05  
  - Answered issue#22 submitted by Dzaky.
 
+22/05
+- Solved issue#20 submitted by Rakshith.
 
 ## Adding tests
 
 Test functions are built for each of my_functions used in the MapMaker. They aim to test if the respective my_fucntions run successfully and return expected variables. Below shows the `test_functions.py` and `RunTests.ipynb` of each group member.
-There are two Python files for test function: `test_functions.p` and `RunTests.ipynb`. The first file (test_functions.py) is where we wrote our function code for testing, while the second file is where we executed the RunTests.ipynb by typing !pytest to check whether all or some of our test functions have passed or not
+There are two Python files for test function: `test_functions.p` and `RunTests.ipynb`. The first file (test_functions.py) is where we wrote our function code for testing, while the second file is where we executed the RunTests.ipynb by typing !pytest to check whether all or some of our test functions have passed or not.
 
 Respective tests：
 
@@ -262,7 +275,7 @@ Respective tests：
 
 ### *Dzaky*
 
-[test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/5631329b203db8be90cdf5ede99960a37ba87507/Dzaky/tests/test_functions.py)
+[test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/57b5eb312bd047e47efca46d0850303681cd848e/Dzaky/tests/test_functions.py)   
 [RunTests.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/5631329b203db8be90cdf5ede99960a37ba87507/Dzaky/RunTests.ipynb)
 
 ### *Zhihan*  
