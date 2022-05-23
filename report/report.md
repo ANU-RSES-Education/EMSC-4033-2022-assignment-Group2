@@ -8,6 +8,37 @@ The following content shows how this repository is created:
 
 Record of requests and reviews.
 
+### Rakshith Vamsi
+
+29/04/2022
+- Commented on request #1 by Dzaky
+- Reviewed and merged request #3 by Jiarun
+
+04/05/2022
+- Reviewed, commented and merged request #8 by Dzaky
+- Requested a pull, #9, to change the name of my assigned folder
+
+16/05/2022
+- commented on Jiarun's request #11, and suggested a change that needed to be done
+- suggested changes to to Dzaky's request #13
+- commented on Jiarun's request #17 that made changes to the README file
+
+17/05/2022
+- opened a pull request #19, to commit initial changes made to 'my_functions.py' and 'test_functions.py'
+- made changes to 'my_functions.py', as suggested by Jiarun #19
+- commented and approved request #21 by Jiarun
+
+20/05/2022
+- pulled a request, #26, to commit the additional changes made to 'my_functions.py'
+
+22/05/2022
+- pulled a request, #29, to commit the final changes made to 'my_functions.py'
+
+23/05/2022
+- pulled a request, #37, that updated 'test_functions.py' and completed my individual task
+- Approved and merged request #38 by Jiarun that made changes to 'README.md'
+
+
 ### Zhihan  
 
 29/4/22
@@ -144,6 +175,12 @@ Record of requests and reviews.
 
 Editting history for `report.md` and `README.md`.
 
+### Rakshith
+
+23/05/2022
+- Add individual contribution details into `report.md`
+- Add Contribution report to `report.md`
+
 ### Zhihan  
 13/5/22
 - Add some information of group template for `README.md`
@@ -177,6 +214,18 @@ Editting history for `report.md` and `README.md`.
 
 Issue records in GitHub.
 
+### Rakshith Vamsi
+
+16/05/2022
+- commented on an issue, #7, raised by Jiarun
+
+17/05/2022
+- raised an issue, #20, about problems with my 'test_functions.py'
+
+22/05/2022
+- discussed issue #20.
+- commented on issue #22 raised by Dzaky
+
 ### Zhihan  
 
 22/5/22
@@ -201,8 +250,8 @@ Issue records in GitHub.
 
 ## Adding tests
 
-Test functions are built for each of my_functions used in the MapMaker. they aim to test if these my_fucntions run successfully and return expected variables. Below shows the `test_functions.py` and `RunTests.ipynb` of each group member.
-There are two Python files for test function: `test_functions.p` and `RunTests.ipynb`. The first file (test_functions.py) is where we wrote our function code for testing, while the second file is where we execute the RunTests.ipynb by typing !pytest to check whether all or some of our test functions have passed or not
+Test functions are built for each of my_functions used in the MapMaker. They aim to test if the respective my_fucntions run successfully and return expected variables. Below shows the `test_functions.py` and `RunTests.ipynb` of each group member.
+There are two Python files for test function: `test_functions.p` and `RunTests.ipynb`. The first file (test_functions.py) is where we wrote our function code for testing, while the second file is where we executed the RunTests.ipynb by typing !pytest to check whether all or some of our test functions have passed or not
 
 Respective tests：
 
@@ -221,6 +270,10 @@ Respective tests：
 [test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/tests/test_functions.py)  
 [RunTests.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/c2afc2a066761d5e2be921ba0ead52ca0ce2f637/Zhihan/RunTests.ipynb)
 
+### *Rakshith Vamsi*
+[test_functions.py](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/ce7bde48140ceccdb2551b7df0fbc349698698bd/Rakshith/tests/test_functions.py)
+[RunTests.ipynb](https://github.com/ANU-RSES-Education/EMSC-4033-2022-assignment-Group2/blob/f778947bc0f37cb435db455ca0a6f79171d80937/Rakshith/RunTests.ipynb)
+
 ## Adding documentation/docstrings
 
 ### *Jiarun*
@@ -238,3 +291,8 @@ Aside from **my_documentation()**, each function has docstrings written in the b
 I wrote what we need to do in group assessment and detailed descriptions of each function we need to complete about their effect and origin in **my_documentation()**, especially in the packages we would use. They are about Basemap, Coastlines and water features, Earthquake point events and Seafloor age. It appears when I run corresponding code in `MapMaker.ipynb`.
 
 Docstrings I written below each function in `my_functions.py` are descriptions of my ideas on how to complete the functions, including the packages I used and arguments, return and meanings of these packages. We could read these codes readily with these docstrings.
+
+### *Rakshith Vamsi*
+The main markdown documentation that is displayed in the `MapMaker.ipynb` notebook is the detailed description of the notebook, it's process and the elements of the map and methods that the program uses to output the elements. This was written in the **my_documentation()** part of `my_functions.py`. These functions give out elements like the basemap, coastlines and water features, and few more data on the earthquake events and the seafloor age.
+
+Furthermore, each of the functions in `my_functions.py` has brief docstrings that explains the function and its purpose. This is done to help the reader navigate through the notebook smoothly and understand what has transpired.
