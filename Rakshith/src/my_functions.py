@@ -61,7 +61,7 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
     
     """
     
-    features = [] #returns an empty list for features
+    features = [] #returns a list for features
     
     import cartopy.feature as cfeature
     
@@ -73,13 +73,13 @@ def my_water_features(resolution, lakes=True, rivers=True, ocean=False):
                                         edgecolor="green",facecolor="blue")
 
     #the following code is to determine which water features are needed
-    if rivers_visible == True:
+    if rivers == True:
         features.append(rivers_visible)
         
-    if lakes_visible == True:
+    if lakes == True:
         features.append(lakes_visible)
 
-    if ocean_visible == True:
+    if ocean == True:
         features.append(ocean_visible)
     
     return features

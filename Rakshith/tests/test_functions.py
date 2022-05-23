@@ -6,7 +6,7 @@ This is to define test functions to each of my functions
 import pytest
 from src.my_functions import *
 
-def documentation_test(my_doc_type = str):
+def test_my_documentation(my_doc_type = str):
     # test with type
 
     document_type = type(my_documentation())
@@ -18,7 +18,7 @@ def documentation_test(my_doc_type = str):
     
     
     
-def coastline_test(my_cl_type = cartopy.feature.NaturalEarthFeature, my_cl_name = 'coastline'):
+def test_my_coastline(my_cl_type = cartopy.feature.NaturalEarthFeature, my_cl_name = 'coastline'):
     # Test with type and feature name
     cl = my_coastlines('50m')
     type_cl = type(cl)
@@ -27,18 +27,18 @@ def coastline_test(my_cl_type = cartopy.feature.NaturalEarthFeature, my_cl_name 
     assert type_cl == my_cl_type and name_cl == my_cl_name, " ***Fail test, no cartopy features for coastlines*** "
                    
                    
-def water_features_test(my_wf_type = list, my_wf_name = ['rivers', 'lakes']):
+def test_my_water_features(type_my_wf = list, name_my_wf = ['rivers_lake_centerlines', 'lakes']):
     # Test with type and feature names
-
+    
     wf = my_water_features('50m')
-
+    
     type_wf = type(wf)
-
+    
     name_wf = []
     name_wf.append(wf[0].name)
     name_wf.append(wf[1].name)
-
-    assert type_wf == my_wf_type and name_wf == my_wf_name, " *** Fail test, no [list] of water cartopy features to return "
+    
+    assert type_wf == type_my_wf and name_wf == name_my_wf, " *** Fail to return a [list] of water cartopy features "
 
 
 def test_my_basemaps(type_of_my_mapper = dict, type_of_my_od = cartopy.io.img_tiles.MapboxTiles):
